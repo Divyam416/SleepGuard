@@ -1,0 +1,15 @@
+{
+    "name": "sleepguard-simulator",
+    "version": "1.0.0",
+    "description": "Therapy simulator for SleepGuard (mirrors the ESP32 adaptive logic)",
+    "main": "simulator.js",
+    "type": "module",
+    "scripts": {
+        "start": "node simulator.js",
+        "dry": "node simulator.js --dry"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.7",
+        "node-fetch": "^3.3.2"
+    }
+}

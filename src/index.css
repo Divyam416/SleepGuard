@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', 'SF Pro Display', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@layer base {
+  :root {
+    /* ── Surface Colors ─────────────────────── */
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F5F5F7;
+    --bg-card: #FFFFFF;
+    --bg-card-hover: #FAFAFA;
+    --bg-inset: #F0F0F2;
+
+    /* ── Border Colors ──────────────────────── */
+    --border-primary: #E5E5E7;
+    --border-subtle: #ECECEE;
+    --border-hover: #D1D1D6;
+
+    /* ── Text Colors ────────────────────────── */
+    --text-primary: #1D1D1F;
+    --text-secondary: #6E6E73;
+    --text-muted: #86868B;
+    --text-faint: #AEAEB2;
+
+    /* ── Accent Colors (no blue/purple) ─────── */
+    --accent-red: #FF3B30;
+    --accent-red-soft: #FF6961;
+    --accent-green: #34C759;
+    --accent-green-muted: #A3B18A;
+    --accent-amber: #FF9F0A;
+    --accent-warm: #D6CCC2;
+    --accent-charcoal: #48484A;
+  }
+
+  body {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* ── Glass Card ───────────────────────────────── */
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.glass-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-hover);
+}
+
+/* ── Pulsing Live Dot ─────────────────────────── */
+@keyframes pulse-live {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.3);
+  }
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: pulse-live 2s ease-in-out infinite;
+}
+
+/* ── Alert Flash ──────────────────────────────── */
+@keyframes alert-flash {
+  0% {
+    background-color: rgba(255, 59, 48, 0.06);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.alert-new {
+  animation: alert-flash 3s ease-out forwards;
+}
+
+/* ── Number Ticker ────────────────────────────── */
+@keyframes count-up {
+  from {
+    transform: translateY(4px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.value-tick {
+  display: inline-block;
+  animation: count-up 0.3s ease-out;
+}
+
+/* ── Gradient Text ────────────────────────────── */
+.gradient-text {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* ── Scrollbar ────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
+
+/* ── Badge ────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badge-critical {
+  background: rgba(255, 59, 48, 0.08);
+  color: var(--accent-red);
+  border: 1px solid rgba(255, 59, 48, 0.15);
+}
+
+.badge-warning {
+  background: rgba(255, 159, 10, 0.08);
+  color: var(--accent-amber);
+  border: 1px solid rgba(255, 159, 10, 0.15);
+}
+
+.badge-info {
+  background: rgba(72, 72, 74, 0.06);
+  color: var(--accent-charcoal);
+  border: 1px solid rgba(72, 72, 74, 0.12);
+}
+
+.badge-ok {
+  background: rgba(52, 199, 89, 0.06);
+  color: var(--accent-green);
+  border: 1px solid rgba(52, 199, 89, 0.12);
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+}
