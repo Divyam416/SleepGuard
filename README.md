@@ -4,7 +4,7 @@ An ESP32 device that notices sustained back-sleeping, gives a gentle vibration, 
 
 > **What is new here.** Vibration-based positional therapy already exists. The contribution is the closed loop: the device does not just "vibrate when on back". It waits for the position to be sustained, holds off if the sleeper is already moving, checks the response, and learns the lowest level that works for that person.
 
-Built on the dashboard structure of [manankothari290-beep/SLEEP_IOT](https://github.com/manankothari290-beep/SLEEP_IOT) (React + Vite + Supabase). The therapy engine, firmware, data model and therapy views are new.
+
 
 ## How it works
 
